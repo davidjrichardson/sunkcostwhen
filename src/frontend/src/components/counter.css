@@ -1,0 +1,57 @@
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: sans-serif;
+
+    background-color: #1e1e1e;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+
+    border-radius: 0.5rem;
+}
+
+.counter-title {
+    font-weight: bold;
+    color: black;
+
+    background-color: #ed702d;
+    display: block;
+
+    font-size: 1.75rem;
+
+    width: 100%;
+    text-align: center;
+
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    line-height: 1.5;
+    padding-top: 0.25rem;
+}
+
+.counter-wrapper {
+    margin: 2rem 1rem;
+}
+
+.counter-caption {
+    padding-bottom: 0.5rem;
+
+    text-align: center;
+}
+
+.counter-caption p {
+    line-height: 1.5;
+    font-size: 1.25rem;
+    margin: 0;
+
+    color: #dfdfdf;
+}
+
+.counter-caption small {
+    font-size: 0.66rem;
+    font-weight: bold;
+
+    color: #a1a1a1;
+}

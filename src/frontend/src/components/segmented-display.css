@@ -1,0 +1,56 @@
+.segmented-display {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid #3b0a06;
+    background-color: #190301;
+    color: #3b0a06;
+
+    font-size: 3.5rem;
+
+    display: flex;
+}
+
+.count {
+    display: flex;
+
+    font-family: 'DSEG7-Classic-MINI';
+
+    margin-right: 0.25rem;
+}
+
+@keyframes flicker {
+    0% {
+        color: #ce2c1f;
+        text-shadow: 0 0 10px #ce2c1f;
+    }
+    89% {
+        color: #ce2c1f;
+        text-shadow: 0 0 10px #ce2c1f;
+    }
+    90% {
+        color: #e33729;
+        text-shadow: 0 0 10px #e33729;
+    }
+    99% {
+        color: #e33729;
+        text-shadow: 0 0 10px #e33729;
+    }
+    100% {
+        color: #ce2c1f;
+        text-shadow: 0 0 10px #ce2c1f;
+    }
+}
+
+.count.active {
+    color: #ce2c1f;
+    text-shadow: 0 0 8px #ce2c1f;
+
+    animation: flicker 3s infinite;
+}
+
+.count .label {
+    font-size: 1rem;
+    font-weight: bold;
+
+    font-family: 'DSEG14-Classic-MINI';
+}
