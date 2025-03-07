@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite src/frontend",
-    "build": "cd src/frontend && tsc -b && vite build",
+    "build": "tsc -b && vite build",
+    "build:dev": "cd src/frontend && npm build",
     "lint": "eslint src/frontend",
     "preview": "vite preview src/frontend"
   },

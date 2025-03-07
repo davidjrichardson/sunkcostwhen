@@ -1,0 +1,6 @@
+*
+
+!.gitignore
+!.websocket.env.example
+!.postgres.env.example
+!.frontend.env.example

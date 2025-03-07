@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432
+    env_file:
+      - ./env/.postgres.env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    container_name: sunkcostwhen-db
+    hostname: sunkcostwhen-db
+    networks:
+      - internal
+
+  websocket:
+    image: ghcr.io/davidjrichardson/sunkcostwhen/websocket:2025-03-06
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile.websocket
+    ports:
+      - "8888:8888"
+    env_file: ./env/.websocket.env
+    environment:
+      - DB_HOST=sunkcostwhen-db
+      - DB_PORT=5432
+    container_name: sunkcostwhen-websocket
+    hostname: sunkcostwhen-websocket
+    networks:
+      - internal
+      - external
+    depends_on:
+      - db
+
+  frontend:
+    image: ghcr.io/davidjrichardson/sunkcostwhen/frontend:2025-03-06
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile.frontend
+    ports:
+      - "8080:80"
+    env_file: ./env/.frontend.env
+    container_name: sunkcostwhen-frontend
+    hostname: sunkcostwhen-frontend
+    networks:
+      - internal
+      - external
+    depends_on:
+      - websocket
+
+networks:
+  internal:
+  external:
