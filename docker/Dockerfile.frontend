@@ -1,5 +1,6 @@
 # Build the front-end
 FROM node:22.14-alpine AS build
+LABEL maintainer="david@tankski.co.uk"
 
 WORKDIR /app
 
