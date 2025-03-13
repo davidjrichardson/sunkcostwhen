@@ -13,7 +13,7 @@ services:
       - internal
 
   websocket:
-    image: ghcr.io/davidjrichardson/sunkcostwhen/websocket:2025-03-06
+    image: ghcr.io/davidjrichardson/sunkcostwhen/websocket:2025-03-13
     build:
       context: ./
       dockerfile: ./docker/Dockerfile.websocket
@@ -32,7 +32,7 @@ services:
       - db
 
   frontend:
-    image: ghcr.io/davidjrichardson/sunkcostwhen/frontend:2025-03-06
+    image: ghcr.io/davidjrichardson/sunkcostwhen/frontend:2025-03-13
     build:
       context: ./
       dockerfile: ./docker/Dockerfile.frontend
