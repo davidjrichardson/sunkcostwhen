@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import DateTime, UUID, Interval, ForeignKey
+from sqlalchemy import DateTime, UUID, Interval, ForeignKey, Integer
 from datetime import datetime, timedelta
 
 
@@ -38,7 +38,7 @@ class LongestInterval(Base):
 
     __tablename__ = "longest_interval"
 
-    id: Mapped[int] = mapped_column(int, primary_key=True, default=1)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, default=1)
     interval: Mapped[timedelta] = mapped_column(Interval, nullable=False)
     ending_reset_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("timer_reset.id"), nullable=False
