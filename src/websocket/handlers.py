@@ -77,11 +77,9 @@ class ResetHandler(WebSocketHandler):
 
             return current
         else:
-            # Calculate the new interval
-            interval = (
-                reset.timestamp
-                - session.query(TimerReset).get(current.ending_reset_id).timestamp
-            )
+            # Calculate the new interval using the time between the last two resets
+            second = session.query(TimerReset).order_by(TimerReset.timestamp.desc()).limit(1).first()
+            interval = reset.timestamp - second.timestamp
             if interval > current.interval:
                 # Update the interval
                 current.interval = interval
