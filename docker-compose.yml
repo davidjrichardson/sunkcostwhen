@@ -38,7 +38,6 @@ services:
       dockerfile: ./docker/Dockerfile.frontend
     ports:
       - "8080:80"
-    env_file: ./env/.frontend.env
     container_name: sunkcostwhen-frontend
     hostname: sunkcostwhen-frontend
     networks:

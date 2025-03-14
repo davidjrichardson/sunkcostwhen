@@ -6,7 +6,7 @@ function WebsocketProvider({ children }: { children: React.ReactNode }) {
   const [socket, setSocket] = useState<WebSocket | null>(null);
 
   useEffect(() => {
-    const ws = new WebSocket('/ws');
+    const ws = new WebSocket('wss://ws.sunkcostwhen.com');
     let interval: number;
     ws.onopen = () => {
         setSocket(ws);

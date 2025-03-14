@@ -1,26 +1,9 @@
-upstream websocket {
-    server ${NGINX_HOST}:${NGINX_WS_PORT};
-}
-
-limit_req_zone $binary_remote_addr zone=ip:10m rate=5r/s;
-
 server {
     listen 80;
-    server_name ${NGINX_HOST};
+    server_name sunkcostwhen.com;
 
     location / {
         root /usr/share/nginx/html;
         try_files $uri $uri/ /index.html;
-    }
-
-    location /ws {
-        proxy_pass         http://websocket/$1;
-        proxy_set_header   Upgrade $http_upgrade;
-        proxy_set_header   Connection "upgrade";
-        proxy_set_header   Host $http_host;
-        proxy_redirect     off;
-        proxy_set_header   X-Real-IP $remote_addr;
-        proxy_set_header   X-Scheme $scheme;
-        limit_req          zone=ip burst=15 delay=5;
     }
 }
