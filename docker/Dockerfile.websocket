@@ -1,5 +1,6 @@
 FROM python:3.13-slim
 LABEL maintainer="david@tankski.co.uk"
+EXPOSE 8888
 
 WORKDIR /app
 

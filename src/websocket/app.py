@@ -11,13 +11,8 @@ DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
 DB_NAME = os.getenv("DB_NAME")
 
-WS_PORT = os.getenv("WS_PORT")
-
 if not all([DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME]):
     raise ValueError("Make sure all database connection info is set")
-
-if not WS_PORT:
-    raise ValueError("Make sure the websocket port is set")
 
 
 def make_app(engine: Engine):
@@ -35,8 +30,8 @@ async def main():
     app = make_app(engine)
     print("Creating database tables")
     Base.metadata.create_all(engine)
-    print(f"Starting websocket server on port {WS_PORT}")
-    app.listen(int(WS_PORT))
+    print(f"Starting websocket server on port 8888")
+    app.listen(8888)
     await asyncio.Event().wait()
 
 
